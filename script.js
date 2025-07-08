@@ -1,10 +1,7 @@
-// Set up PDF.js worker
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'build/pdf.worker.min.js';
 
-// Global variables for rendering
 let pdf, currentPage, currentScale = 1.5, offsetX = 0, offsetY = 0;
 
-// Render the PDF
 async function renderPDF() {
   try {
     pdf = await pdfjsLib.getDocument('tube_map.pdf').promise;
@@ -22,7 +19,6 @@ async function renderPDF() {
   }
 }
 
-// Search for stations and extract restaurant info
 async function searchStation() {
   const query = document.getElementById('searchInput').value.toLowerCase().trim();
   const resultDiv = document.getElementById('restaurantInfo');
@@ -67,10 +63,8 @@ async function searchStation() {
   }
 }
 
-// Placeholder for highlightStation
 async function highlightStation(x, y) {
   console.log(`Highlighting station at x: ${x}, y: ${y}`);
 }
 
-// Initialize the PDF rendering
 renderPDF();
